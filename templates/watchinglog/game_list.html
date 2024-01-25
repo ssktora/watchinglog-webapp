@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>一覧</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fefefe;
+        }
+        
+        .right-container {
+            text-align: right;
+        }
+
+        .form-link-container {
+            display: flex;  
+            align-items: center;  
+        }
+        .d-inline {
+            margin-right: 10px;
+        }
+</style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="mb-4">観戦記録一覧</h1>
+        <div class="right-container">
+            <p>ユーザ名：{{ user }}</p>
+        </div>
+        <div class="form-link-container">
+            <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link nav-link">ログアウト</button>
+            </form>
+           
+            <p><a href="{% url 'password_change' %}">パスワードの変更</a></p>
+        </div>
+        
+        
+    </header>
+    <div class="container mt-4">
+        <p><a class="btn btn-primary" href="{% url 'watchinglog:create' %}">新規作成</a></p>
+    
+        <table class="table" style="background-color: #fff">
+            <thead>
+                <tr>
+                    <th scope="col">観戦日</th>
+                    <th scope="col">ホーム</th>
+                    <th scope="col">ビジター</th>
+                    <th scope="col">球場</th>
+                    <th scope="col">アクション</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in game_list %}
+                <tr>
+                    <td>{{ game.date }}</td>
+                    <td>{{ game.home }}</td>
+                    <td>{{ game.visiter }}</td>
+                    <td>{{ game.stadium }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'watchinglog:detail' game.pk %}">詳細</a>
+                        <a class="btn btn-warning" href="{% url 'watchinglog:update' game.pk %}">編集</a>
+                        <a class="btn btn-danger" href="{% url 'watchinglog:delete' game.pk %}">削除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

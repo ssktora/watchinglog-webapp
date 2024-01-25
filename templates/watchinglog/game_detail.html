@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>詳細</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+ 
+        .custom-box {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: block; /* ブロック要素にする */
+            text-decoration: none; /* デフォルトの下線を削除 */
+            color: #333; /* リンクのテキストカラー */
+        } 
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        home {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fefefe;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="mb-4">詳細</h1>
+    </header>
+    <div>
+        <a class="custom-box">
+            <h2>{{ game.date }}</h2>
+            <p>ホームチーム: {{ game.home }}</p>
+            <p>ビジターチーム: {{ game.visiter }}</p>
+            <p>球場: {{ game.stadium }}</p>
+            <p>結果: {{ game.home }} {{ game.home_score }} vs {{ game.visiter_score }} {{ game.visiter }} </p>
+            <hr>
+            <h2>感想</h2>
+            <p>{{ game.memo }}</p>
+        </a>
+    </div>
+    <a class="btn btn-primary" href="{% url 'watchinglog:index' %}">観戦記録一覧へ</a>
+</body>
+</html>

@@ -1,0 +1,142 @@
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>一覧</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fefefe;
+        }
+
+        .btn-link {
+            color: #007bff;
+        }
+
+        .btn-link:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="mb-4">観戦記録アプリ</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <p><a class="btn btn-link" href="{% url 'login' %}">ログイン</a></p>
+            </div>
+            <div class="col-md-6 text-center">
+                <p><a class="btn btn-link" href="{% url 'signup' %}">新規登録</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .btn-link {
+            color: #007bff;
+            font-size: 1.2em;
+        }
+
+        .btn-link:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="mb-4">観戦記録アプリ</h1>
+    </header>
+    <div class="container">
+        <img src="{% static 'watchinglog/memo.png' %}" alt="Memo Icon" style="width: 100px; height: 100px;">
+        <p>ログインまたは新規登録して始めよう！</p>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <p><a class="btn btn-link" href="{% url 'login' %}">ログイン</a></p>
+            </div>
+            <div class="col-md-6 text-center">
+                <p><a class="btn btn-link" href="{% url 'signup' %}">新規登録</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
